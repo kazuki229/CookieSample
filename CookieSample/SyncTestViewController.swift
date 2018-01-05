@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class SyncTestViewController: UIViewController {
+class SyncTestViewController: UIViewController, WKHTTPCookieStoreObserver {
     var wkWebView: WKWebView!
     @IBOutlet weak var webView: UIWebView!
     
@@ -32,8 +32,12 @@ class SyncTestViewController: UIViewController {
         let request = URLRequest(url: URL(string: Const.googleUrl)!)
         self.webView.loadRequest(request)
         let conf = WKWebViewConfiguration()
+
         let frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width/2, height: self.view.frame.size.height/2)
         self.wkWebView = WKWebView(frame: frame, configuration: conf)
+        if #available(iOS 11.0, *) {
+            self.wkWebView.configuration.websiteDataStore.httpCookieStore.add(self)
+        }
         self.view.addSubview(self.wkWebView)
         let wkrequest = URLRequest(url: URL(string: Const.googleUrl)!)
         self.wkWebView.load(wkrequest)
@@ -78,9 +82,6 @@ class SyncTestViewController: UIViewController {
     @objc func update(tm: Timer)
     {
         self.updateUIStorageLabel()
-        if #available(iOS 11.0, *) {
-            self.updateWKStorageLabel()
-        }
         self.updateWKJSLabel()
         self.updateUIJSLabel()
     }
@@ -95,22 +96,6 @@ class SyncTestViewController: UIViewController {
                 }
                 if cookies.last == cookie {
                     self.uiStorageLabel.text = "empty"
-                }
-            }
-        }
-    }
-    
-    @available(iOS 11.0, *)
-    func updateWKStorageLabel() {
-        let cookieStore = self.wkWebView.configuration.websiteDataStore.httpCookieStore
-        cookieStore.getAllCookies { (cookies) in
-            for cookie in cookies {
-                if cookie.name == "SID" {
-                    self.wkStorageLabel.text = cookie.value
-                    break
-                }
-                if cookies.last == cookie {
-                    self.wkStorageLabel.text = "empty"
                 }
             }
         }
@@ -142,7 +127,26 @@ class SyncTestViewController: UIViewController {
         }
         return "empty"
     }
-        
+    
+    @available(iOS 11.0, *)
+    func cookiesDidChange(in cookieStore: WKHTTPCookieStore) {
+        cookieStore.getAllCookies({ [weak self] (cookies) in
+            for cookie in cookies {
+                if cookie.name == "SID" {
+                    if let weakself = self {
+                        weakself.wkStorageLabel.text = cookie.value
+                    }
+                    break
+                }
+                if cookies.last == cookie {
+                    if let weakself = self {
+                        weakself.wkStorageLabel.text = "empty"
+                    }
+                }
+            }
+        })
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

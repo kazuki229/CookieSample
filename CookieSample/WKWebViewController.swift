@@ -9,22 +9,41 @@
 import UIKit
 import WebKit
 
-class WKWebViewController: UIViewController {
+class WKWebViewController: UIViewController, WKHTTPCookieStoreObserver {
 
     var webView: WKWebView!
-    var timer: Timer!
     
     @IBOutlet weak var cookieLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         let request = URLRequest(url: URL(string: Const.googleUrl)!)
         let conf = WKWebViewConfiguration()
+        
+        if #available(iOS 11.0, *) {
+            conf.websiteDataStore.httpCookieStore.add(self)
+        }
         self.webView = WKWebView(frame: self.view.frame, configuration: conf)
         self.view.addSubview(self.webView)
         self.webView.load(request)
-        
-        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
-        self.timer.fire()
+    }
+    
+    @available(iOS 11.0, *)
+    func cookiesDidChange(in cookieStore: WKHTTPCookieStore) {
+        cookieStore.getAllCookies({ [weak self] (cookies) in
+            for cookie in cookies {
+                if cookie.name == "SID" {
+                    if let weakself = self {
+                        weakself.cookieLabel.text = cookie.value
+                    }
+                    break
+                }
+                if cookies.last == cookie {
+                    if let weakself = self {
+                        weakself.cookieLabel.text = "empty"
+                    }
+                }
+            }
+        })
     }
     
     override func viewDidLayoutSubviews() {
@@ -33,25 +52,6 @@ class WKWebViewController: UIViewController {
     
     @IBAction func close(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
-    }
-    
-    @objc func update(tm: Timer) {
-        self.updateUIStorageLabel()
-    }
-    
-    func updateUIStorageLabel() {
-        let cookieStorage = HTTPCookieStorage.shared
-        if let cookies = cookieStorage.cookies {
-            for cookie in cookies {
-                if cookie.name == "SID" {
-                    self.cookieLabel.text = cookie.value
-                    break
-                }
-                if cookies.last == cookie {
-                    self.cookieLabel.text = "empty"
-                }
-            }
-        }
     }
     
     override func didReceiveMemoryWarning() {
