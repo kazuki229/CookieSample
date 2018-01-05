@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,168 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CookieSample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7t-H9-cwd">
+                                <rect key="frame" x="50" y="120" width="275" height="50"/>
+                                <color key="backgroundColor" red="0.78823529411764703" green="0.22745098039215686" blue="0.25098039215686274" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KCx-hM-6n3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="UIWebView">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wwo-GM-rIo" kind="show" id="spA-py-1ZQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCY-pN-VEq">
+                                <rect key="frame" x="50" y="190" width="275" height="50"/>
+                                <color key="backgroundColor" red="0.87058823529411766" green="0.58823529411764708" blue="0.062745098039215685" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="wYt-Qf-Ncf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="WKWebView">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="gfW-u6-Nyu" kind="show" id="NUB-O7-g9V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rD7-4l-pxj">
+                                <rect key="frame" x="50" y="260" width="275" height="50"/>
+                                <color key="backgroundColor" red="0.62745098039215685" green="0.76078431372549016" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="8WX-no-Fby"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="SFSafariViewController">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showSFSafariView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5hY-KW-NeC"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="G7t-H9-cwd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="7yu-z4-7KB"/>
+                            <constraint firstItem="rD7-4l-pxj" firstAttribute="top" secondItem="NCY-pN-VEq" secondAttribute="bottom" constant="20" id="8OK-Da-H7I"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rD7-4l-pxj" secondAttribute="trailing" constant="50" id="CyQ-WT-3ks"/>
+                            <constraint firstItem="NCY-pN-VEq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="IcB-PJ-sI9"/>
+                            <constraint firstItem="G7t-H9-cwd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Kl1-th-8nh"/>
+                            <constraint firstItem="NCY-pN-VEq" firstAttribute="top" secondItem="G7t-H9-cwd" secondAttribute="bottom" constant="20" id="Oii-cv-UkG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="G7t-H9-cwd" secondAttribute="trailing" constant="50" id="SPj-sG-MG4"/>
+                            <constraint firstItem="rD7-4l-pxj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="X5s-Tc-XlT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NCY-pN-VEq" secondAttribute="trailing" constant="50" id="ZRG-Nz-fML"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="sfSafariViewButton" destination="rD7-4l-pxj" id="6GS-I4-rxI"/>
+                        <outlet property="uiWebViewButton" destination="G7t-H9-cwd" id="kYa-w3-azV"/>
+                        <outlet property="wkWebViewButton" destination="NCY-pN-VEq" id="Bhk-xo-qay"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="162" y="136"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TwM-va-aIb">
+            <objects>
+                <navigationController storyboardIdentifier="UIWebViewController" id="wwo-GM-rIo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iX1-kV-5IL">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="obO-xc-zsB" kind="relationship" relationship="rootViewController" id="3sH-sR-aNW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EdY-Qw-X2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="838" y="134"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7Iv-X2-fZK">
+            <objects>
+                <navigationController storyboardIdentifier="WKWebViewController" id="gfW-u6-Nyu" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uPe-kJ-bfY">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2ke-FU-GRU" kind="relationship" relationship="rootViewController" id="d1u-P0-tdz"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UcL-jX-KcS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="838" y="813"/>
+        </scene>
+        <!--WKWebView-->
+        <scene sceneID="2z9-DH-cEG">
+            <objects>
+                <viewController id="2ke-FU-GRU" customClass="WKWebViewController" customModule="CookieSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="feh-XI-F5z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="MCI-0E-whm"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="WKWebView" id="a5P-SK-hPR">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="dnj-Zi-5q3">
+                            <connections>
+                                <action selector="close:" destination="2ke-FU-GRU" id="l3Q-5P-F47"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w5d-Db-tKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1622" y="813"/>
+        </scene>
+        <!--UIWebView-->
+        <scene sceneID="PnF-Cb-jP1">
+            <objects>
+                <viewController modalTransitionStyle="flipHorizontal" id="obO-xc-zsB" customClass="UIWebViewController" customModule="CookieSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0La-QM-jyH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idI-lg-Hc7">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Tk1-qB-BWo" firstAttribute="trailing" secondItem="idI-lg-Hc7" secondAttribute="trailing" id="QIZ-Gp-b63"/>
+                            <constraint firstItem="Tk1-qB-BWo" firstAttribute="bottom" secondItem="idI-lg-Hc7" secondAttribute="bottom" id="oU9-JX-YAT"/>
+                            <constraint firstItem="idI-lg-Hc7" firstAttribute="top" secondItem="Tk1-qB-BWo" secondAttribute="top" id="r5L-hs-YfS"/>
+                            <constraint firstItem="idI-lg-Hc7" firstAttribute="leading" secondItem="Tk1-qB-BWo" secondAttribute="leading" id="w01-j1-Vk9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Tk1-qB-BWo"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="UIWebView" id="6fh-dR-trQ">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="b0E-yH-xhq">
+                            <connections>
+                                <action selector="close:" destination="obO-xc-zsB" id="qZo-d4-eYu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="idI-lg-Hc7" id="vCm-fk-OvI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MaC-9X-8HO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1623" y="137"/>
         </scene>
     </scenes>
 </document>

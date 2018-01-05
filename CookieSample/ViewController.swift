@@ -7,19 +7,26 @@
 //
 
 import UIKit
+import SafariServices
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var uiWebViewButton: UIButton!
+    @IBOutlet weak var wkWebViewButton: UIButton!
+    @IBOutlet weak var sfSafariViewButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    @IBAction func showSFSafariView(_ sender: UIButton) {
+        let vc = SFSafariViewController(url: URL(string: Const.googleUrl)!)
+        present(vc, animated: true, completion: nil)
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-
 }
 

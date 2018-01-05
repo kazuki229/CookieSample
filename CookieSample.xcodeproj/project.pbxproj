@@ -14,6 +14,9 @@
 		2D9AAD5E1FFF81520079A635 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D9AAD5C1FFF81520079A635 /* LaunchScreen.storyboard */; };
 		2D9AAD691FFF81520079A635 /* CookieSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9AAD681FFF81520079A635 /* CookieSampleTests.swift */; };
 		2D9AAD741FFF81520079A635 /* CookieSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9AAD731FFF81520079A635 /* CookieSampleUITests.swift */; };
+		2D9AAD821FFF89EB0079A635 /* UIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9AAD811FFF89EB0079A635 /* UIWebViewController.swift */; };
+		2D9AAD841FFF8A050079A635 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9AAD831FFF8A050079A635 /* WKWebViewController.swift */; };
+		2DDA6AD51FFF9A1C0028BAE6 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDA6AD41FFF9A1C0028BAE6 /* Const.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		2D9AAD6F1FFF81520079A635 /* CookieSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookieSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9AAD731FFF81520079A635 /* CookieSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieSampleUITests.swift; sourceTree = "<group>"; };
 		2D9AAD751FFF81520079A635 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D9AAD811FFF89EB0079A635 /* UIWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWebViewController.swift; sourceTree = "<group>"; };
+		2D9AAD831FFF8A050079A635 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
+		2DDA6AD41FFF9A1C0028BAE6 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +105,10 @@
 			children = (
 				2D9AAD531FFF81520079A635 /* AppDelegate.swift */,
 				2D9AAD551FFF81520079A635 /* ViewController.swift */,
+				2D9AAD811FFF89EB0079A635 /* UIWebViewController.swift */,
+				2D9AAD831FFF8A050079A635 /* WKWebViewController.swift */,
 				2D9AAD571FFF81520079A635 /* Main.storyboard */,
+				2DDA6AD41FFF9A1C0028BAE6 /* Const.swift */,
 				2D9AAD5A1FFF81520079A635 /* Assets.xcassets */,
 				2D9AAD5C1FFF81520079A635 /* LaunchScreen.storyboard */,
 				2D9AAD5F1FFF81520079A635 /* Info.plist */,
@@ -260,7 +269,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D9AAD561FFF81520079A635 /* ViewController.swift in Sources */,
+				2D9AAD821FFF89EB0079A635 /* UIWebViewController.swift in Sources */,
+				2DDA6AD51FFF9A1C0028BAE6 /* Const.swift in Sources */,
 				2D9AAD541FFF81520079A635 /* AppDelegate.swift in Sources */,
+				2D9AAD841FFF8A050079A635 /* WKWebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
