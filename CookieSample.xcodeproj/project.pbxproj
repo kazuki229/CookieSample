@@ -14,7 +14,7 @@
 		2D9AAD5E1FFF81520079A635 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D9AAD5C1FFF81520079A635 /* LaunchScreen.storyboard */; };
 		2D9AAD691FFF81520079A635 /* CookieSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9AAD681FFF81520079A635 /* CookieSampleTests.swift */; };
 		2D9AAD741FFF81520079A635 /* CookieSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9AAD731FFF81520079A635 /* CookieSampleUITests.swift */; };
-		2D9AAD821FFF89EB0079A635 /* UIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9AAD811FFF89EB0079A635 /* UIWebViewController.swift */; };
+		2D9AAD821FFF89EB0079A635 /* SyncTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9AAD811FFF89EB0079A635 /* SyncTestViewController.swift */; };
 		2D9AAD841FFF8A050079A635 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9AAD831FFF8A050079A635 /* WKWebViewController.swift */; };
 		2DDA6AD51FFF9A1C0028BAE6 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDA6AD41FFF9A1C0028BAE6 /* Const.swift */; };
 /* End PBXBuildFile section */
@@ -50,7 +50,7 @@
 		2D9AAD6F1FFF81520079A635 /* CookieSampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CookieSampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9AAD731FFF81520079A635 /* CookieSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieSampleUITests.swift; sourceTree = "<group>"; };
 		2D9AAD751FFF81520079A635 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2D9AAD811FFF89EB0079A635 /* UIWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWebViewController.swift; sourceTree = "<group>"; };
+		2D9AAD811FFF89EB0079A635 /* SyncTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncTestViewController.swift; sourceTree = "<group>"; };
 		2D9AAD831FFF8A050079A635 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		2DDA6AD41FFF9A1C0028BAE6 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,7 +105,7 @@
 			children = (
 				2D9AAD531FFF81520079A635 /* AppDelegate.swift */,
 				2D9AAD551FFF81520079A635 /* ViewController.swift */,
-				2D9AAD811FFF89EB0079A635 /* UIWebViewController.swift */,
+				2D9AAD811FFF89EB0079A635 /* SyncTestViewController.swift */,
 				2D9AAD831FFF8A050079A635 /* WKWebViewController.swift */,
 				2D9AAD571FFF81520079A635 /* Main.storyboard */,
 				2DDA6AD41FFF9A1C0028BAE6 /* Const.swift */,
@@ -158,9 +158,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D9AAD7B1FFF81520079A635 /* Build configuration list for PBXNativeTarget "CookieSampleTests" */;
 			buildPhases = (
+				6E626D02F76D9A4C02A3C447 /* [CP] Check Pods Manifest.lock */,
 				2D9AAD601FFF81520079A635 /* Sources */,
 				2D9AAD611FFF81520079A635 /* Frameworks */,
 				2D9AAD621FFF81520079A635 /* Resources */,
+				B1F2A87C89857E43D68A711D /* [CP] Embed Pods Frameworks */,
+				940F373C2B18A6B0495BD354 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,9 +179,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D9AAD7E1FFF81520079A635 /* Build configuration list for PBXNativeTarget "CookieSampleUITests" */;
 			buildPhases = (
+				214B7826F06B8DDE6B984167 /* [CP] Check Pods Manifest.lock */,
 				2D9AAD6B1FFF81520079A635 /* Sources */,
 				2D9AAD6C1FFF81520079A635 /* Frameworks */,
 				2D9AAD6D1FFF81520079A635 /* Resources */,
+				1C6B0FE9AB8BFCE47572C8A5 /* [CP] Embed Pods Frameworks */,
+				8E1A5636552CD51C8CE6A412 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -263,13 +269,106 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1C6B0FE9AB8BFCE47572C8A5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CookieSampleUITests/Pods-CookieSampleUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		214B7826F06B8DDE6B984167 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6E626D02F76D9A4C02A3C447 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8E1A5636552CD51C8CE6A412 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CookieSampleUITests/Pods-CookieSampleUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		940F373C2B18A6B0495BD354 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CookieSampleTests/Pods-CookieSampleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1F2A87C89857E43D68A711D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CookieSampleTests/Pods-CookieSampleTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2D9AAD4C1FFF81520079A635 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				2D9AAD561FFF81520079A635 /* ViewController.swift in Sources */,
-				2D9AAD821FFF89EB0079A635 /* UIWebViewController.swift in Sources */,
+				2D9AAD821FFF89EB0079A635 /* SyncTestViewController.swift in Sources */,
 				2DDA6AD51FFF9A1C0028BAE6 /* Const.swift in Sources */,
 				2D9AAD541FFF81520079A635 /* AppDelegate.swift in Sources */,
 				2D9AAD841FFF8A050079A635 /* WKWebViewController.swift in Sources */,
@@ -375,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -426,7 +525,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
