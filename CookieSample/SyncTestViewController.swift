@@ -147,6 +147,12 @@ class SyncTestViewController: UIViewController, WKHTTPCookieStoreObserver {
         })
     }
     
+    deinit {
+        if #available(iOS 11.0, *) {
+            self.wkWebView.configuration.websiteDataStore.httpCookieStore.remove(self)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

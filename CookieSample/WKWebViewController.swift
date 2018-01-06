@@ -14,15 +14,17 @@ class WKWebViewController: UIViewController, WKHTTPCookieStoreObserver {
     var webView: WKWebView!
     
     @IBOutlet weak var cookieLabel: UILabel!
+    @IBOutlet weak var setCookieButton: UIButton!
+    @IBOutlet weak var deleteCookieButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         let request = URLRequest(url: URL(string: Const.googleUrl)!)
         let conf = WKWebViewConfiguration()
         
-        if #available(iOS 11.0, *) {
-            conf.websiteDataStore.httpCookieStore.add(self)
-        }
         self.webView = WKWebView(frame: self.view.frame, configuration: conf)
+        if #available(iOS 11.0, *) {
+            self.webView.configuration.websiteDataStore.httpCookieStore.add(self)
+        }
         self.view.addSubview(self.webView)
         self.webView.load(request)
     }
@@ -47,11 +49,49 @@ class WKWebViewController: UIViewController, WKHTTPCookieStoreObserver {
     }
     
     override func viewDidLayoutSubviews() {
-        self.webView.frame.size.height = self.view.frame.size.height - 100
+        self.webView.frame.size.height = self.view.frame.size.height - 150
     }
     
     @IBAction func close(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func setCookie(_ sender: UIButton) {
+        if #available(iOS 11.0, *) {
+            let cookieStore = self.webView.configuration.websiteDataStore.httpCookieStore
+            let cookieProperty: [HTTPCookiePropertyKey: Any] = [
+                HTTPCookiePropertyKey.domain: ".google.co.jp",
+                HTTPCookiePropertyKey.path: "/",
+                HTTPCookiePropertyKey.name: "SID",
+                HTTPCookiePropertyKey.value: "hogehoge",
+                HTTPCookiePropertyKey.secure: "FALSE",
+                HTTPCookiePropertyKey.expires: Date()
+            ]
+            let cookie = HTTPCookie(properties: cookieProperty)!
+            cookieStore.setCookie(cookie, completionHandler: {
+                
+            })
+        }
+    }
+    
+    @IBAction func deleteCookie(_ sender: UIButton) {
+        if #available(iOS 11.0, *) {
+            let cookieStore = self.webView.configuration.websiteDataStore.httpCookieStore
+            cookieStore.getAllCookies({ (cookies) in
+                for cookie in cookies {
+                    if cookie.name == "SID" {
+                        cookieStore.delete(cookie, completionHandler: {
+                        })
+                    }
+                }
+            })
+        }
+    }
+    
+    deinit {
+        if #available(iOS 11.0, *) {
+            self.webView.configuration.websiteDataStore.httpCookieStore.remove(self)
+        }
     }
     
     override func didReceiveMemoryWarning() {
