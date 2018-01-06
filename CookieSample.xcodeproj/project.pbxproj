@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D1AFF7F2000DDFF003DD1C1 /* HTTPCookieStorageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1AFF7E2000DDFF003DD1C1 /* HTTPCookieStorageViewController.swift */; };
 		2D6D8E712000BB250027021E /* SFAuthenticationSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D8E702000BB250027021E /* SFAuthenticationSessionViewController.swift */; };
 		2D9AAD541FFF81520079A635 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9AAD531FFF81520079A635 /* AppDelegate.swift */; };
 		2D9AAD561FFF81520079A635 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9AAD551FFF81520079A635 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D1AFF7E2000DDFF003DD1C1 /* HTTPCookieStorageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCookieStorageViewController.swift; sourceTree = "<group>"; };
 		2D6D8E702000BB250027021E /* SFAuthenticationSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFAuthenticationSessionViewController.swift; sourceTree = "<group>"; };
 		2D9AAD501FFF81520079A635 /* CookieSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookieSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9AAD531FFF81520079A635 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				2D9AAD811FFF89EB0079A635 /* SyncTestViewController.swift */,
 				2D9AAD831FFF8A050079A635 /* WKWebViewController.swift */,
 				2D9AAD571FFF81520079A635 /* Main.storyboard */,
+				2D1AFF7E2000DDFF003DD1C1 /* HTTPCookieStorageViewController.swift */,
 				2DDA6AD41FFF9A1C0028BAE6 /* Const.swift */,
 				2D9AAD5A1FFF81520079A635 /* Assets.xcassets */,
 				2D9AAD5C1FFF81520079A635 /* LaunchScreen.storyboard */,
@@ -372,6 +375,7 @@
 			files = (
 				2D6D8E712000BB250027021E /* SFAuthenticationSessionViewController.swift in Sources */,
 				2D9AAD561FFF81520079A635 /* ViewController.swift in Sources */,
+				2D1AFF7F2000DDFF003DD1C1 /* HTTPCookieStorageViewController.swift in Sources */,
 				2D9AAD821FFF89EB0079A635 /* SyncTestViewController.swift in Sources */,
 				2DDA6AD51FFF9A1C0028BAE6 /* Const.swift in Sources */,
 				2D9AAD541FFF81520079A635 /* AppDelegate.swift in Sources */,

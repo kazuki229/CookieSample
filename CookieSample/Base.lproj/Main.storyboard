@@ -7,6 +7,7 @@
         <deployment version="2304" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -76,11 +77,27 @@
                                     <segue destination="oeR-me-KWa" kind="show" id="nsS-ZX-aNV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVy-Kp-vmK">
+                                <rect key="frame" x="50" y="400" width="275" height="50"/>
+                                <color key="backgroundColor" red="0.58039215686274503" green="0.37647058823529411" blue="0.62745098039215685" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ip0-ye-qWS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="HTTPCookieStorage">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jGR-zF-tYh" kind="show" id="6Rv-co-3L7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="LVy-Kp-vmK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="2ZB-fQ-cBE"/>
                             <constraint firstItem="G7t-H9-cwd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="7yu-z4-7KB"/>
                             <constraint firstItem="rD7-4l-pxj" firstAttribute="top" secondItem="NCY-pN-VEq" secondAttribute="bottom" constant="20" id="8OK-Da-H7I"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LVy-Kp-vmK" secondAttribute="trailing" constant="50" id="9Ph-E1-bpf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rD7-4l-pxj" secondAttribute="trailing" constant="50" id="CyQ-WT-3ks"/>
                             <constraint firstItem="xBL-Ja-vI8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="Gmc-1a-BWh"/>
                             <constraint firstItem="NCY-pN-VEq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="IcB-PJ-sI9"/>
@@ -91,6 +108,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NCY-pN-VEq" secondAttribute="trailing" constant="50" id="ZRG-Nz-fML"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xBL-Ja-vI8" secondAttribute="trailing" constant="50" id="aZu-Vv-t5X"/>
                             <constraint firstItem="xBL-Ja-vI8" firstAttribute="top" secondItem="rD7-4l-pxj" secondAttribute="bottom" constant="20" id="pVb-Ly-d2g"/>
+                            <constraint firstItem="LVy-Kp-vmK" firstAttribute="top" secondItem="xBL-Ja-vI8" secondAttribute="bottom" constant="20" id="w40-EE-LSi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -153,6 +171,22 @@
             </objects>
             <point key="canvasLocation" x="838" y="1539"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FjC-ij-zKn">
+            <objects>
+                <navigationController id="jGR-zF-tYh" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cUM-mi-Cff">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="jlL-4Q-oA3" kind="relationship" relationship="rootViewController" id="wym-fP-khb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LE0-Gl-3Ga" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="838" y="2206"/>
+        </scene>
         <!--SFAuthenticationSession-->
         <scene sceneID="VhE-H1-rEp">
             <objects>
@@ -198,6 +232,128 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6g-fV-OcP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1622" y="1539"/>
+        </scene>
+        <!--Cookie Storage View Controller-->
+        <scene sceneID="Z5u-kD-Ahv">
+            <objects>
+                <viewController id="jlL-4Q-oA3" customClass="HTTPCookieStorageViewController" customModule="CookieSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jDT-OL-iap">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9f5-vh-tc0">
+                                <rect key="frame" x="50" y="517" width="275" height="30"/>
+                                <color key="backgroundColor" red="0.78823529410000004" green="0.2274509804" blue="0.25098039220000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Go8-ZC-Tos"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Delete Cookie">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteCookie:" destination="jlL-4Q-oA3" eventType="touchUpInside" id="ofb-CQ-P0V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hku-EY-99v">
+                                <rect key="frame" x="50" y="567" width="275" height="30"/>
+                                <color key="backgroundColor" red="0.87058823529999996" green="0.58823529409999997" blue="0.062745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Uda-Ti-3L5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Set Cookie">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="setCookie:" destination="jlL-4Q-oA3" eventType="touchUpInside" id="8CZ-IY-Ty4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rUy-OP-5jy">
+                                <rect key="frame" x="50" y="617" width="275" height="30"/>
+                                <color key="backgroundColor" red="0.62745098040000002" green="0.76078431369999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0o6-qv-pPr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="RemoveCookie">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="removeCookies" destination="jlL-4Q-oA3" eventType="touchUpInside" id="Efw-yJ-Edm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u70-bI-IVf">
+                                <rect key="frame" x="50" y="437" width="132.5" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="mNf-vM-Sgu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqU-qs-jUa">
+                                <rect key="frame" x="192.5" y="437" width="132.5" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Izd-tK-RUv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="e5f-K9-DHW" firstAttribute="trailing" secondItem="sqU-qs-jUa" secondAttribute="trailing" constant="50" id="1Wt-PL-6eK"/>
+                            <constraint firstItem="sqU-qs-jUa" firstAttribute="width" secondItem="u70-bI-IVf" secondAttribute="width" id="28S-cC-0Mt"/>
+                            <constraint firstItem="e5f-K9-DHW" firstAttribute="trailing" secondItem="9f5-vh-tc0" secondAttribute="trailing" constant="50" id="2S5-U8-wVW"/>
+                            <constraint firstItem="u70-bI-IVf" firstAttribute="leading" secondItem="e5f-K9-DHW" secondAttribute="leading" constant="50" id="6vw-23-Qxk"/>
+                            <constraint firstItem="e5f-K9-DHW" firstAttribute="trailing" secondItem="hku-EY-99v" secondAttribute="trailing" constant="50" id="C6M-p0-CEh"/>
+                            <constraint firstItem="hku-EY-99v" firstAttribute="top" secondItem="9f5-vh-tc0" secondAttribute="bottom" constant="20" id="DlU-qv-w9c"/>
+                            <constraint firstItem="rUy-OP-5jy" firstAttribute="leading" secondItem="e5f-K9-DHW" secondAttribute="leading" constant="50" id="Hao-ok-9Lv"/>
+                            <constraint firstItem="sqU-qs-jUa" firstAttribute="leading" secondItem="u70-bI-IVf" secondAttribute="trailing" constant="10" id="MO4-qo-gPN"/>
+                            <constraint firstItem="rUy-OP-5jy" firstAttribute="top" secondItem="hku-EY-99v" secondAttribute="bottom" constant="20" id="P7h-cT-d8z"/>
+                            <constraint firstItem="e5f-K9-DHW" firstAttribute="trailing" secondItem="rUy-OP-5jy" secondAttribute="trailing" constant="50" id="Tae-yY-2i9"/>
+                            <constraint firstItem="9f5-vh-tc0" firstAttribute="leading" secondItem="e5f-K9-DHW" secondAttribute="leading" constant="50" id="Zcc-TB-3HY"/>
+                            <constraint firstItem="e5f-K9-DHW" firstAttribute="bottom" secondItem="rUy-OP-5jy" secondAttribute="bottom" constant="20" id="cef-Ei-Hyl"/>
+                            <constraint firstItem="hku-EY-99v" firstAttribute="leading" secondItem="e5f-K9-DHW" secondAttribute="leading" constant="50" id="ouM-PB-Wx4"/>
+                            <constraint firstItem="9f5-vh-tc0" firstAttribute="top" secondItem="sqU-qs-jUa" secondAttribute="bottom" constant="20" id="pzq-aO-JCu"/>
+                            <constraint firstItem="9f5-vh-tc0" firstAttribute="top" secondItem="u70-bI-IVf" secondAttribute="bottom" constant="20" id="xzm-Yg-R6w"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="e5f-K9-DHW"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CIl-yp-WuU">
+                        <barButtonItem key="leftBarButtonItem" title="Done" id="NQz-qL-n7G">
+                            <connections>
+                                <action selector="close:" destination="jlL-4Q-oA3" id="UXt-CX-XGf"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="refresh" id="acL-0m-tai">
+                                <connections>
+                                    <action selector="reload:" destination="jlL-4Q-oA3" id="B7R-pf-Jlv"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="fastForward" id="Hg9-Zo-HaL">
+                                <connections>
+                                    <action selector="next:" destination="jlL-4Q-oA3" id="iHE-Go-eZz"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="rewind" id="YFx-un-dM0">
+                                <connections>
+                                    <action selector="prev:" destination="jlL-4Q-oA3" id="oEu-of-spX"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="sidLabel" destination="u70-bI-IVf" id="BLP-zg-T03"/>
+                        <outlet property="ssidLabel" destination="sqU-qs-jUa" id="qNx-AE-53M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qTe-PM-wiD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1622" y="2205"/>
         </scene>
         <!--WKWebView-->
         <scene sceneID="2z9-DH-cEG">
