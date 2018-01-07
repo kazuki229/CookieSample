@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Const{
+struct Const {
     static let googleUrl = "https://google.co.jp"
 }

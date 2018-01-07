@@ -17,7 +17,7 @@ class SFAuthenticationSessionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let url = URL(string: "https://google.co.jp")!
-        self.authSession = SFAuthenticationSession(url: url, callbackURLScheme: "scheme") { (url, error) in
+        self.authSession = SFAuthenticationSession(url: url, callbackURLScheme: "scheme") { (_, _) in
 
         }
     }

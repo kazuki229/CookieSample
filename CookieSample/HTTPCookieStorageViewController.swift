@@ -25,7 +25,8 @@ class HTTPCookieStorageViewController: UIViewController {
         let cookieStorage = HTTPCookieStorage.shared
         cookieStorage.cookieAcceptPolicy = .always
 
-        self.webView = WKWebView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0), configuration: conf)
+        self.webView = WKWebView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 0),
+                                 configuration: conf)
         self.view.addSubview(self.webView)
         self.webView.load(request)
 
@@ -39,8 +40,11 @@ class HTTPCookieStorageViewController: UIViewController {
         self.webView.bottomAnchor.constraint(equalTo: self.sidLabel.topAnchor).isActive = true
         self.webView.bottomAnchor.constraint(equalTo: self.ssidLabel.topAnchor).isActive = true
 
-        
-        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 0.1,
+                                          target: self,
+                                          selector: #selector(self.update),
+                                          userInfo: nil,
+                                          repeats: true)
         self.timer.fire()
     }
 
@@ -103,22 +107,25 @@ class HTTPCookieStorageViewController: UIViewController {
         }
     }
     
-    @objc func update(tm: Timer)
-    {
+    @objc func update() {
         let cookieStorage = HTTPCookieStorage.shared
         if let cookies = cookieStorage.cookies {
             var sidflg = false, ssidflg = false
             for cookie in cookies {
                 if cookie.name == "SID" {
                     sidflg = true
-                    self.sidLabel.text = "name: SID\nvalue: " + cookie.value.prefix(6) + "\nhttponly: " + String(cookie.isHTTPOnly)
+                    self.sidLabel.text =
+                        "name: SID\nvalue: " + cookie.value.prefix(6) +
+                        "\nhttponly: "       + String(cookie.isHTTPOnly)
                     self.sidLabel.sizeToFit()
                     continue
                 }
                 
                 if cookie.name == "SSID" {
                     ssidflg = true
-                    self.ssidLabel.text = "name: SSID\nvalue: " + cookie.value.prefix(6) + "\n" + "httponly: " + String(cookie.isHTTPOnly) + ""
+                    self.ssidLabel.text =
+                        "name: SSID\nvalue: " + cookie.value.prefix(6) +
+                        "\nhttponly: " + String(cookie.isHTTPOnly)
                     self.ssidLabel.sizeToFit()
                     continue
                 }

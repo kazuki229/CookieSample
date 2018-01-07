@@ -41,8 +41,12 @@ class SyncTestViewController: UIViewController, WKHTTPCookieStoreObserver {
         self.view.addSubview(self.wkWebView)
         let wkrequest = URLRequest(url: URL(string: Const.googleUrl)!)
         self.wkWebView.load(wkrequest)
-        
-        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.update), userInfo: nil, repeats: true)
+
+        self.timer = Timer.scheduledTimer(timeInterval: 0.1,
+                                          target: self,
+                                          selector: #selector(self.update),
+                                          userInfo: nil,
+                                          repeats: true)
         self.timer.fire()
     }
     
@@ -79,8 +83,7 @@ class SyncTestViewController: UIViewController, WKHTTPCookieStoreObserver {
         }
     }
     
-    @objc func update(tm: Timer)
-    {
+    @objc func update() {
         self.updateUIStorageLabel()
         self.updateWKJSLabel()
         self.updateUIJSLabel()
@@ -91,7 +94,10 @@ class SyncTestViewController: UIViewController, WKHTTPCookieStoreObserver {
         if let cookies = cookieStorage.cookies {
             for cookie in cookies {
                 if cookie.name == "SID" {
-                    self.uiStorageLabel.text = cookie.value
+                    self.uiStorageLabel.text =
+                        "value :"      + cookie.value.prefix(6) +
+                        "\nhttponly: " + String(cookie.isHTTPOnly)
+                    self.uiStorageLabel.sizeToFit()
                     break
                 }
                 if cookies.last == cookie {
@@ -102,9 +108,11 @@ class SyncTestViewController: UIViewController, WKHTTPCookieStoreObserver {
     }
     
     func updateWKJSLabel() {
-        self.wkWebView.evaluateJavaScript("document.cookie") { [weak self] (result, error) in
+        self.wkWebView.evaluateJavaScript("document.cookie") { [weak self] (result, _) in
             if let weakself = self {
-                weakself.wkjsLabel.text =  weakself.getSIDFromCookieString(cookieString: result as! String)
+                if let str = result as? String {
+                    weakself.wkjsLabel.text =  weakself.getSIDFromCookieString(cookieString: str)
+                }
             }
         }
     }
@@ -134,7 +142,10 @@ class SyncTestViewController: UIViewController, WKHTTPCookieStoreObserver {
             for cookie in cookies {
                 if cookie.name == "SID" {
                     if let weakself = self {
-                        weakself.wkStorageLabel.text = cookie.value
+                        weakself.wkStorageLabel.text =
+                            "value :"      + cookie.value.prefix(6) +
+                            "\nhttponly: " + String(cookie.isHTTPOnly)
+                        weakself.wkStorageLabel.sizeToFit()
                     }
                     break
                 }

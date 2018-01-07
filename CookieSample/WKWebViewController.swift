@@ -78,11 +78,9 @@ class WKWebViewController: UIViewController, WKHTTPCookieStoreObserver {
         if #available(iOS 11.0, *) {
             let cookieStore = self.webView.configuration.websiteDataStore.httpCookieStore
             cookieStore.getAllCookies({ (cookies) in
-                for cookie in cookies {
-                    if cookie.name == "SID" {
-                        cookieStore.delete(cookie, completionHandler: {
-                        })
-                    }
+                for cookie in cookies where cookie.value == "SID" {
+                    cookieStore.delete(cookie, completionHandler: {
+                    })
                 }
             })
         }
