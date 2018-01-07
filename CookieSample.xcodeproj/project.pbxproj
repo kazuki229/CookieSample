@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D1AFF7F2000DDFF003DD1C1 /* HTTPCookieStorageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1AFF7E2000DDFF003DD1C1 /* HTTPCookieStorageViewController.swift */; };
 		2D6D8E712000BB250027021E /* SFAuthenticationSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6D8E702000BB250027021E /* SFAuthenticationSessionViewController.swift */; };
+		2D7A9A1B20013C2400219493 /* WKHTTPCookieStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7A9A1A20013C2400219493 /* WKHTTPCookieStoreViewController.swift */; };
 		2D9AAD541FFF81520079A635 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9AAD531FFF81520079A635 /* AppDelegate.swift */; };
 		2D9AAD561FFF81520079A635 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9AAD551FFF81520079A635 /* ViewController.swift */; };
 		2D9AAD591FFF81520079A635 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D9AAD571FFF81520079A635 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		2D1AFF7E2000DDFF003DD1C1 /* HTTPCookieStorageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCookieStorageViewController.swift; sourceTree = "<group>"; };
 		2D6D8E702000BB250027021E /* SFAuthenticationSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFAuthenticationSessionViewController.swift; sourceTree = "<group>"; };
+		2D7A9A1A20013C2400219493 /* WKHTTPCookieStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKHTTPCookieStoreViewController.swift; sourceTree = "<group>"; };
 		2D9AAD501FFF81520079A635 /* CookieSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CookieSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D9AAD531FFF81520079A635 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2D9AAD551FFF81520079A635 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				2D9AAD831FFF8A050079A635 /* WKWebViewController.swift */,
 				2D9AAD571FFF81520079A635 /* Main.storyboard */,
 				2D1AFF7E2000DDFF003DD1C1 /* HTTPCookieStorageViewController.swift */,
+				2D7A9A1A20013C2400219493 /* WKHTTPCookieStoreViewController.swift */,
 				2DDA6AD41FFF9A1C0028BAE6 /* Const.swift */,
 				2D9AAD5A1FFF81520079A635 /* Assets.xcassets */,
 				2D9AAD5C1FFF81520079A635 /* LaunchScreen.storyboard */,
@@ -150,6 +153,7 @@
 				2D9AAD4C1FFF81520079A635 /* Sources */,
 				2D9AAD4D1FFF81520079A635 /* Frameworks */,
 				2D9AAD4E1FFF81520079A635 /* Resources */,
+				2D7A9A1C2001F25000219493 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -306,6 +310,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		2D7A9A1C2001F25000219493 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
 		6E626D02F76D9A4C02A3C447 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -373,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D7A9A1B20013C2400219493 /* WKHTTPCookieStoreViewController.swift in Sources */,
 				2D6D8E712000BB250027021E /* SFAuthenticationSessionViewController.swift in Sources */,
 				2D9AAD561FFF81520079A635 /* ViewController.swift in Sources */,
 				2D1AFF7F2000DDFF003DD1C1 /* HTTPCookieStorageViewController.swift in Sources */,
